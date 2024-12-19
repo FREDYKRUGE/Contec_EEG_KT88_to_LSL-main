@@ -15,10 +15,20 @@ def display_eeg_data(request):
         if sample is None:
             return render(request, 'eeg_app/eeg_data.html', {'error': 'No EEG data available.'})
 
+        # Channel names
+        channel_names = ['Fp1', 'Fp2', 'F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2',
+                         'F7', 'F8', 'T3', 'T4', 'T5', 'T6', 'Fz', 'Pz', 'Cz', 'Pg1', 'Pg2',
+                         'EOGR', 'EOOGL', 'EMG', 'BR', 'ECG']
+
+        # Split data into two lists
+        left_table_data = zip(channel_names[:len(sample)//2], sample[:len(sample)//2])
+        right_table_data = zip(channel_names[len(sample)//2:], sample[len(sample)//2:])
+
         # Prepare data for the template
         context = {
             'timestamp': timestamp,
-            'sample': sample,
+            'left_table_data': left_table_data,
+            'right_table_data': right_table_data,
         }
         return render(request, 'eeg_app/eeg_data.html', context)
     except Exception as e:
