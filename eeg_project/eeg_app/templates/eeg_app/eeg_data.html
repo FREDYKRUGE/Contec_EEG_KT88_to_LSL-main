@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3"> 
+    <title>EEG Data</title>
+</head>
+<body>
+    <h1>Real-Time EEG Data</h1>
+
+    <p><strong>Timestamp:</strong> {{ timestamp }}</p>
+
+    <h2>Sample:</h2>
+    <ul>
+        {% for value in sample %}
+            <li>Channel {{ forloop.counter }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
