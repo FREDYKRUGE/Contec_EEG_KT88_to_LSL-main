@@ -22,3 +22,10 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.custom-header {
+    background-color: #a83248; /* Set the header background color */
+    padding: 1rem; /* Add some padding for better spacing */
+    border-radius: 0.5rem; /* Optional: Add rounded corners for a softer look */
+    margin-bottom: 1.5rem; /* Add some space below the header */
+}
